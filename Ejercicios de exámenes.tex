@@ -1,0 +1,821 @@
+\documentclass[fleqn]{article}
+
+%\pgfplotsset{compat=1.17}
+
+\usepackage{mathexam}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{systeme}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{dsfont} %Numeros reales, naturales...
+\usepackage{cancel}
+\usepackage{hyperref}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc} %Indice
+
+
+%\graphicspath{{images/}}
+\newcommand*{\QED}{\hfill\ensuremath{\square}}
+
+
+%Estructura de ecuaciones
+%\setlength{\textwidth}{15cm} \setlength{\oddsidemargin}{5mm}
+%\setlength{\textheight}{23cm} \setlength{\topmargin}{-1cm}
+
+
+\author{David García Curbelo}
+%\title{}
+
+\pagestyle{empty}
+
+
+\def\R{\mathds{R}}
+\def\Z{\mathds{Z}}
+\def\N{\mathds{N}}
+\def\X{\mathbf{X}}
+
+\def\sup{$^2$}
+
+\def\next{\quad \Rightarrow \quad}
+
+\def\s{\thinspace}
+
+\def\ss{\thinspace \thinspace}
+
+\begin{document}
+        \setcounter{page}{1}
+        \pagestyle{plain}
+
+
+
+        \begin{titlepage}
+                \centering
+                {\bfseries\LARGE Universidad de Granada \par}
+                \vspace{1cm}
+                {\scshape\Large Facultad de Ciencias \par}
+                \vspace{5cm}
+                {\scshape\Huge Ejercicios de exámenes Resueltos \par}
+                \vspace{3cm}
+                {\itshape\Large Estadística descriptiva en introd. a la Probabilidad \par}
+                \vfill
+                {\textit\Large AmigoCanario \par}
+        \end{titlepage}
+
+
+        \textit{En el presente documento se presenta un compendio de todas las cuestiones del marco teórico que se han preguntado en los
+        últimos 10 años, con la intención de que sirva al lector a modo de guía teórica para los exámenes venideros. Como podréis 
+        observar, no hay preguntas en exceso, y éstas mismas que aquí os presento se han repetido convocatoria tras convocatoria 
+        a lo largo de los años. Espero que te sirva de ayuda tanto como me ha servido a mí, y espero que hagas buen uso del mismo.}
+        
+        \tableofcontents
+
+        \newpage
+
+        \section{Estadística Unidimensional y Bidimensional}
+
+        \begin{enumerate}
+                
+                \subsection{Opción Múltiple}
+
+                \item \textbf{Responde correctamente a las siguientes cuestiones:}
+                        \begin{enumerate}
+                                \item \textbf{Si el coeficiente de variación de Pearson de $X$ es $CV(X) = 0.32$ y la variable $Y = \frac{X+4}{2}$, entonces:}
+                                        \begin{enumerate}
+                                                \item $CV(Y) = 2.16$
+                                                \item Las variables $X$ e $Y$ tienen la misma dispersión relativa.
+                                                \item $CV(Y) = \frac{0.32}{1+\frac{4}{\bar{x}}}$
+                                                \item Ninguna de las anteriores.
+                                        \end{enumerate}
+
+                                \item \textbf{La razón de correlación:}
+                                        \begin{enumerate}
+                                                \item Tiene por rango de variación $[-1, 1]$.
+                                                \item En el caso del ajuste lineal coincide con el coeficiente de correlación lineal.
+                                                \item Indica la proporción de la varianza de la variable dependiente debida a la varianza residual. 
+                                                \item Indica la proporción de la varianza de la variable dependiente, explicada por la regresión. 
+                                        \end{enumerate}
+
+                                \item \textbf{El valor de la vivienda se ha incrementado un 10\%, 3\%, 2\% y 9\% respectivamente durante los últimos 
+                                        cuatro años. El incremento medio anual del valor de la vivienda durante dicho periodo ha sido:}
+                                        \begin{enumerate}
+                                                \item 25.97\%
+                                                \item 5.94\%
+                                                \item 6\%
+                                                \item 4.82\%
+                                        \end{enumerate}
+
+                                \item \textbf{A partir de la siguiente distribución:}
+                                        \begin{center}
+                                                \begin{tabular}{c|c|c}
+                                                        $x_i$ & $f_i$ & $N_i$ \\
+                                                        \hline
+                                                        0 & 0.5 & \\
+                                                        \hline
+                                                        1 & 0.2 & 7 \\
+                                                        \hline
+                                                        2 & 0.3 & \\
+                                                \end{tabular}
+                                        \end{center}
+                                        \textbf{se puede afirmar que:}
+                                        \begin{enumerate}
+                                                \item La media aritmética es 0.5.
+                                                \item El valor 1 se repite 7 veces.
+                                                \item Existe un total de 10 observaciones.
+                                                \item El valor mediano es $x_2$.
+                                        \end{enumerate}
+                                
+                                 \item \textbf{La varianza de los residuos de la curva de regresión de $Y$ sobre $X$ vale 1 y la varianza de $Y$ vale 4.
+                                        Si $Y' = 1-Y$, entonces:}  
+                                        \begin{enumerate}
+                                                \item La razón de correlación de $Y'$ sobre $X$ es mayor que 0.75.
+                                                \item El coeficiente de determinación lineal de $X$ e $Y'$ vale 0.75.
+                                                \item El error cuadrático medio asociado a la curva de regresión de $Y'$ sobre $X$ vale 1.
+                                                \item $\eta_{y'/x}^2 = 1 - \eta_{y/x}^2$.
+                                        \end{enumerate} 
+
+                                \item \textbf{Sea $(X,Y)$ una variable estadística bidimensional. Ajustar por mínimos cuadrados un modelo de la forma 
+                                        $y= ax^2$ e identificar la afirmación correcta:}
+                                        \begin{enumerate}
+                                                \item La medida de los residuos es nula.
+                                                \item $a= m_{21} / m_{20}$.
+                                                \item La varianza de los residuos coincide con el error cuadrático medio.
+                                                \item $a= m_{21} / m_{40}$.
+                                        \end{enumerate}
+
+                                \item \textbf{Si $\bar{x} > 1/2$ e $Y = 2X -1$, entonces:}
+                                        \begin{enumerate}
+                                                \item $Y$ tiene menos dispersión absoluta respecto a su media que $X$.
+                                                \item La media de $Y$ es más representativa que la media de $X$.
+                                                \item Las medias de $X$ y de $Y$ son igual de representativas.
+                                                \item La media de $X$ es más representativa que la media de $Y$.
+                                        \end{enumerate} 
+                                
+                        \end{enumerate}
+
+
+                \newpage
+
+                \subsubsection{Soluciones}
+
+                        \begin{enumerate}
+                                \item Solución apartado 3). Como queremos calcular el $CV(Y)$, tenemos que aplicar el cambio de variable 
+                                        de $Y = \frac{X}{2} + 2$, lo que es lo mismo, todos sus valores en la nueva variable quedan modificados tal que 
+                                        $y_i = \frac{x_i}{2} + 2$. Como sabemos, 
+                                        $$CV_X = \frac{\sigma_x}{\bar{x}} \next CV_{aX+b} = \frac{a\sigma_x}{a\bar{x} + b} \next CV_Y = \frac{\frac{1}{2}\sigma_x}{\frac{\bar{x}}{2} + 2}$$
+                                        Ahora diviendo entre la media $\bar{x}$ el numerador tenemos
+                                        $$CV_Y = \frac{\frac{1}{2}\sigma_x}{\frac{\bar{x}}{2} + 2} = \frac{\frac{1}{2}\frac{\sigma_x}{\bar{x}}}{\frac{1}{2} + \frac{2}{\bar{x}}} = 
+                                        \frac{1}{2}\frac{CV_X}{\frac{1}{2} + \frac{2}{\bar{x}}} = \frac{CV_X}{1 + \frac{4}{\bar{x}}}$$ \\
+
+                                \item Solución apartado 4). Aquí hay poco que explicar. El primero no puede ser, ya que se trata de un
+                                        intervalo abierto, y la razón de correlación puede tomar valor 0 (ajuste perfecto). Como la fórmula es
+                                        $$\eta^2_{y/x} = 1 - \frac{\sigma_{ry}^2}{\sigma_y^2}$$
+                                        Vemos que indica la proporción de la variable dependiente ($y$) con respecto a la regresión.\\
+
+                                \item Solución apartado 2). Para este ejercicio debemos tener en cuneta que se trata de \textit{incremento}, es decir,
+                                        en realidad estamos trabajando con los porcentajes 110\%, 103\%, 102\% y 109\%. Al tratarse de porcentajes, realizamos su media 
+                                        geométrica, y obtenemos así 
+                                        $$I_M = \sqrt[n]{\prod_{i=1}^n x_i} = \sqrt[4]{1.1 \cdot 1.03 \cdot 1.02 \cdot 1.09} = 1,0594 $$
+                                        $$\next \text{Incremento del }5.94\%$$\\
+
+                                \item Solución apartado 3). Si calculamos la media veremos que su valor es $\bar{x} = 0.8 \neq 0.5$. El valor 
+                                        mediano no puede ser 1 ya que el 50\% de los datos están en $x_1$ ($f_1 = 0.5$). Si completamos la tabla, vemos que 
+                                        $F_2 = 0.7$, y como $n = \frac{N_i}{F_i}$, tenemos que $n = 10$.\\   
+
+                                \item Solución apartado 3).
+                                \item Solución apartado 4).
+                        \end{enumerate}
+
+
+                \newpage
+                
+                \subsection{Verdadero/Falso}
+
+
+                \item \textbf{Justificar la veracidad o falsedad de las siguientes afirmaciones:}
+                
+                        \begin{enumerate}
+                                \item El cuartil de orden 2 de la distribución de una variable estadística continua no siempre 
+                                        coincide con su mediana.
+                                \item El coeficiente de determincación, en el caso de la regresión lineal, coincie con el 
+                                        coeficiente de correlación lineal.
+                                \item Sea $X$ una variable estadística. Sea $Y = 3X - 2$. Entonces 
+                                        $CV(Y) = \frac{3CV(X)}{3 - \frac{2}{\bar{x}}}$.
+                                \item Si $\mu_{11} = 0$ entonces las variables son independientes (momento conjunto no centrado).
+                                \item Si las variables $X$ e $Y$ son independientes, entonces los momentos conjuntos no centrados
+                                        serán todos nulos.
+                                \item En la curva de regresión mínimo cuadrática $Y/X$, los residuos tienen media $\bar{Y}$ y los 
+                                        valores ajustados tienen media 0.
+                                \item Si $X$ e $Y$ son independientes, entonces la covarianza de las variables es nula.
+                                \item Si $X$ e $Y$ son independientes, entonces la razón de correlación de $Y$ sobre $X$ es mayor que
+                                        el coeficiente de determincación lineal.
+                                \item Si $X$ e $Y$ son independientes, entonces la media de los residuos lineales mínimo cuadráticos 
+                                        de $Y/X$ es $\bar{Y}$.
+                                \item Si $X$ e $Y$ son independientes, entonces la varianza de los residuos lineales mínimo cuadráticos
+                                        de $Y/X$ es $\sigma_y ^2$.
+                                \item Si todos los valores de $X$ están comprendidos en un intervalo de amplitud 2, la varianza de $X$ es 
+                                        menor o igual que 4.
+                                \item Si la varianza de $X$ vale 4 y el error cuadrático medio asociado a la recta de regresión de $X$
+                                        sobre $Y$ vale 3, la razón de correlación de $X$ sobre $Y$ es menor que 0.25.
+                                \item Si $X$ es independiente de $Y$, entonces las medias condicionadas de $Y$ a los distintos valores 
+                                        de $X$ tienen varianza 0.
+                                \item si $X' = -3X + 1$ e $ Y' = 3Y - 2$, entonces $R_{x'y'} = R_{xy}$.
+                                \item Si $X$ e $Y$son variables independientes tales que $\bar{x} = -3$ y $m_{11} = 6$, entonces la media 
+                                        de $Y' = -3Y + 1$ vale 7.
+                                \item Si las rectas de regresión son $4x + y = 1$ y $5x + y = 2$, entonces $\bar{x} = 1$.
+                        \end{enumerate}
+
+
+                \newpage
+
+                \subsubsection{Soluciones}
+
+                        \begin{enumerate}
+                                \item Falso. $P_{50} = D_{10} = Q_2 = Me$\\
+                                \item Falso. Sólo coinciden en en caso en el que las rectas son crecientes y que además exista dependencia 
+                                                lineal recíproca entre $X$ e $Y$ ($R_{xy} = R_{xy}^2 = 1$) \\
+                                \item Verdadero. Como queremos calcular el $CV(Y)$, tenemos que aplicar el cambio de variable 
+                                                de $Y = 3X - 2$, lo que es lo mismo, todos sus valores en la nueva variable quedan modificados tal que 
+                                                $y_i = 3x_i - 2$. Como sabemos, 
+                                                $$CV_X = \frac{\sigma_x}{\bar{x}} \next CV_{aX+b} = \frac{a\sigma_x}{a\bar{x} + b} \next CV_Y = \frac{3\sigma_x}{3\bar{x} - 2}$$
+                                                Ahora diviendo entre la media $\bar{x}$ el numerador tenemos
+                                                $$CV_Y = \frac{3\sigma_x}{3\bar{x} - 2} = \frac{3CV_X}{3 - \frac{2}{\bar{x}}} $$\\
+                                \item Falso. Que las variables sean independientes implica que la covarianza sea nula, pero el recíproco no 
+                                                es cierto. Basta considerar el ejemplo siguiente: 
+                                                \begin{center}
+                                                        \begin{tabular}{c|c c c}
+                                                                $X\setminus Y$ & 1 & 2 & 3 \\
+                                                                \hline
+                                                                -1 & 0 & 1 & 0 \\
+                                                                
+                                                                0 & 1 & 0 & 1 \\
+                                                                
+                                                                1 & 0 & 1 & 0 \\
+                                                        \end{tabular}
+                                                \end{center}
+                                                donde podemos ver que la covarianza es nula y sin embargo las variables no son independientes.\\
+                                \item Falso. Si son independientes entonces se tiene $m_{rs} = m_{r0} m_{0s} \neq 0$\\
+                                \item Falso. El enunciado correcto sería el siguiente: ...los residuos tienen media 0 y la media de los valores
+                                                ajustados coincide con la de los observados (es decir, tiene media $\bar{y}$).\\
+                                \item Verdadero. Si dos variables son independientes, entonces se cumple que $f_{ij} = f_{i.} f_{.j}, \thinspace \forall i, j$.
+                                                Por tanto, aplicando el teorema de Konig se tiene:
+                                                $$\sigma_{xy} = \sum_{i=1}^k \sum_{j=1}^p f_{ij} x_i y_j - \bar{x} \bar{y} = 
+                                                \sum_{i=1}^k \sum_{j=1}^p f_{i.} f_{.j} x_i y_j - \bar{x} \bar{y} = $$
+                                                $$= \sum_{i=1}^k f_{i.} x_i \sum_{j=1}^p f_{.j} y_j - \bar{x} \bar{y} = \bar{x} \bar{y} - \bar{x} \bar{y} = 0$$\\
+                                \item Falso. Como las variables son independientes, entonces se tiene que la covarianza es nula, y por tanto el coeficiente
+                                                de determinación lineal viene dado por 
+                                                $$R^2_{xy} = \frac{\sigma_{xy}^2}{\sigma_x^2 \sigma_y^2} = 0$$
+                                                y por tanto, dado que la razón de correlación es mayor o igual que cero, no podemos afirmar que sea estrictamente 
+                                                mayor que cero.\\
+                                \item Falso. Si consideramos la recta de regresión $Y/X$, los residuos vienen dados por
+                                                $$r_{ij} = y_j - \left( \bar{y} + \frac{\sigma_{xy}}{\sigma_x ^2} (x_i - \bar{x})\right)$$
+                                                Entonces, suponiendo que la media de los residuos lineales es nula, notando por $n=pk$, luego tenemos 
+                                                (sustituyendo el resultado anterior)
+                                                $$\sum_{i=1}^k \sum_{j=1}^p \frac{1}{n}r_{ij} = 0 \Leftrightarrow k \sum_{j=1}^p y_j = kp \bar{y}
+                                                \leftrightarrow \sum_{j=1}^p y_j = p \frac{1}{n} \sum_{j=1}^p y_j \Leftrightarrow p=n \Leftrightarrow k=1$$
+                                                y por tanto, si $k=1$ nos encontraríamos en una unidimensional, lo cual contradice con la hipótesis inicial.\\
+                                \item Verdadero. Por ser $ X $ e $Y$ independientes, tenemos que la covarianza es nula $\sigma_{xy}^2  = 0$. Sabemos que la varianza de los residuos 
+                                                lineales viene explicada de la siguiente manera:
+                                                $$\sigma_y^2 = \sigma_{ey}^2 + \sigma_{ry}^2, \quad \quad \quad \sigma_{ey}^2 = \frac{\sigma_{xy}^2}{\sigma_x^2} = 0$$
+                                                $$\next \sigma_y^2 = \sigma_{ry}^2$$
+                                \item Verdadero. la varianza sabemos que viene dada por 
+                                                $$\sigma_x^2 = \sum_{i=1}^k f_i(x_i - \bar{x})$$
+                                                Por definición, la media pertenece al intervalo comprendido entre el valor máximo y el mínimo de todos los $x_i, \thinspace i=1,...,k$.
+                                                por lo que tenemos
+                                                $$\min(x_i) \leq \bar{x} \leq \max(x_i)$$
+                                                Y de la misma manera, podemos deducir que 
+                                                $$\min(x_i - \bar{x})^2 \leq \sigma_x^2 \leq \max(x_i - \bar{x})^2$$
+                                                Por hipótesis sabemos que la amplitud del intervalo $(\min(x_i), \max(x_i))$ vale 2, luego
+                                                $$\max(x_i - \bar{x}) \leq 2 \next \max(x_i - \bar{x})^2 \leq 4$$
+                                                $$\min(x_i - \bar{x})^2 \leq \sigma_x^2 \leq \max(x_i - \bar{x})^2 \leq 4 \next \sigma_x^2 \leq 4 $$\\
+                                \item Falso. Sabemos que la razón de correlación viene dada por
+                                                $$\eta_{x/y} ^2 = 1 - \frac{ECM(X/Y)}{\sigma_x^2}$$
+                                                Sustituyendo los dos valores que nos da el enunciado tenemos que $\eta_{x/y} ^2 = 0.25$, en contradicción con que 
+                                                valga estrictamente menos que 0.25.
+                                \item Verdadero.
+                                \item Falso.
+                                \item Verdadero.
+                                \item Verdadero.
+                        \end{enumerate}
+        
+
+                \newpage
+        
+                \subsection{Cuestiones Teóricas}         
+
+                \item \textbf{Sea $(X, Y)$ una varaible estadística bidimensional con valores $(x_i, y_j)$ y frecuencias relativas 
+                        $f_{ij}$, $i = 1,..., k; \thinspace j = 1,...,p$.}
+                
+                        \begin{enumerate}
+                                \item Dado $j = 1,..., p$, expresa las frecuencias relativas de la distribución condicionada de $X$ a $Y = y_j$,
+                                        en términos de las conjuntas, $f_{ij}$, y especifica la media y la varianza de dicha distribución 
+                                        condicionada en términos de las frecuencias relativas correspondientes.
+                                \item Determina de forma justificada la curva de regresión mínimo cuadrática de $Y$ sobre $X$. Calcula la 
+                                        media de los valores ajustados por esta curva.
+                                \item Se han observado las variables $(X, Y)$ y se ha obtenido que la recta de regresión de $Y$ sobre $X$ es
+                                        $y = -2x + 4$, con $R^2_{xy} = 4/9$, $\bar{x} = 3$ y $\sigma_y = 12$. Determina los valores de $\bar{y}$, 
+                                        $\sigma_x$ y la covarianza $\sigma_{xy}$.
+                                \item Deducir de forma razonada cómo afecta el cambio de origen y escala al coeficiente de variación $X$.
+                                \item Deducir de forma razonada las ecuaciones normales de la recta de regresión mínimo cuadrática de $Y/X$
+                                        y obtener la expresión de la recta a partir de dichas ecuaciones. 
+                                \item En la regresión lineal de $Y$ sobre $X$, deducir de forma razonada la expresión de la varianza de los 
+                                        valores observados en función de los valores ajustados y de los momentos de los residuos. 
+                                \item Definir las frecuencias relativas, la media y la varianza de la distribución $Y$ condicionada a $X = x_i$.
+                        \end{enumerate}
+
+        
+                \newpage
+
+                \subsubsection{Soluciones}
+
+                        \begin{enumerate}
+                                \item Frecuencia relativa de $x_i$ en los individuos tales que $Y = y_j$:
+                                        $$f_{i/j} = \frac{n_{ij}}{n_{.j}} = = \frac{f_{ij}}{f_{.j}}$$ 
+                                        $$\bar{x}_j = \sum_{j=1}^p f_{i/j} x_i \quad \quad \quad \sigma_{x,j}^2 = \sum_{j=1}^p f_{i/j}(x_i - \bar{x}_j  )^2$$\\
+                                \item Se deja este ejercicio propuesto para el lector.\\
+                                \item Nuestra recta viene dada por $y = ax + b = -2x + 4$. Basándonos en los resultados del apartado anterior, y sustituyendo los valores 
+                                        dados por el enunciado, obtenemos
+                                        $$
+                                        \left.
+                                        \begin{aligned}
+                                                a = \frac{\sigma_{xy}}{\sigma_x^2} \\
+                                                b = \bar{y} - \frac{\sigma_{xy}}{\sigma_x^2} \bar{x}
+                                        \end{aligned} \right\}
+                                        \next \left.
+                                        \begin{aligned}
+                                                -2 = \frac{\sigma_{xy}}{\sigma_x^2} \\
+                                                4 = \bar{y} - 3 \frac{\sigma_{xy}}{\sigma_x^2}
+                                        \end{aligned} \right\}
+                                        \next 4 = \bar{y} - 3 (-2)  
+                                        $$
+                                        $$
+                                        \next \bar{y} = - 2
+                                        $$
+                                        Ya tenemos nuestra primera ecuación. Aplciando ahora que 
+                                        $$R^2_{xy} = \frac{\sigma_{xy}^2}{\sigma_x^2 \sigma_y^2} = \frac{4}{9}$$
+                                        y junto con la primera ecuación del sistema anterior (y que $\sigma_y = 12$) entonces tenemos:
+                                        $$\frac{4}{9} = \frac{\sigma_{xy}^2}{\sigma_x^2 \sigma_y^2} = \sigma_{xy}\frac{\sigma_{xy}}{\sigma_x^2} \frac{1}{\sigma_y^2} = 
+                                        \sigma_{xy}(-2)\frac{1}{144} \next \sigma_{xy} = -32
+                                        $$
+                                        Y retomando ahora nuestra primera ecuación, obtenemos de manera directa que $\sigma_x = 4 $.\\
+                                \item Veamos cómo es afectado por cambios de origen, pero sin embargo no afectado por cambios de escala.
+                                        $$CV_X = \frac{\sigma_x}{\bar{x}}  \next  CV_{aX+b} = \frac{\sigma_{ax+b}}{\overline{{ax+b}}}$$
+                                        Como bien sabemos, la media se ve afectada tanto por cambios de escala como por cambios de origen, 
+                                        al igual que la varianza por cambios de escala de la siguiente manera:
+                                        $$CV_{aX+b} = \frac{\sigma_{ax+b}}{\overline{{ax+b}}} = \frac{|a|\sigma_{x}}{a\overline{x} + b}$$
+                                        Donde vemos que en caso de que $b=0$ (sin cambio de origen, sólo de escala) resulta que 
+                                        $CV_{aX} = CV_{X}$, pero dicha igualdad no se cumple para cualquier otro valor de $b$, luego concluimos
+                                        que el coeficiente de variación es invarainte ante cambios de escala, pero sí es sensible a cambios de origen.\\
+                                \item Queremos que $Y/X$ sea aproximado por una distribución de la forma $y=ax+b$ tal que la función
+                                        $$\lambda(a,b) = \sum_{i=1}^k \sum_{j=1}^p f_{ij} [y_j - (ax_i + b)]^2$$
+                                        sea mínima (notemos que es la varianza donde hemos sustituido la recta que buscamos en la media de $y$). Para calcular 
+                                        que sea mínima, calculamos las parciales con respecto a las variables $a$ y $b$ e igualamos a cero (para obtener los 
+                                        posibles extremos relativos) de donde obtenemos las siguientes ecuaciones normales:
+                                        $$
+                                        \left.
+                                        \begin{aligned}
+                                                &\frac{\partial \lambda(a,b)}{\partial a} = 0 \\
+                                                &\frac{\partial \lambda(a,b)}{\partial a} = 0 \\                                                
+                                        \end{aligned} \right\}
+                                        \next \left.
+                                        \begin{aligned}
+                                                m_{11} = am_{20} + bm_{10}\\
+                                                m_{01} = am_{10} + b\\
+                                        \end{aligned} \right\}
+                                        \next \left.
+                                        \begin{aligned}
+                                                a = \frac{\sigma_{xy}}{\sigma_x^2} \\
+                                                b = \bar{y} - \frac{\sigma_{xy}}{\sigma_x^2} \bar{x}
+                                        \end{aligned} \right\}
+                                        $$
+                                        de donde hemos obtenido los elementos de nuestra recta $y=ax+b$ que buscábamos. Notemos que la varianza no puede ser nula, 
+                                        ya que en tal caso tendremos que $X$ es constante, y por tanto no tendría sentido calcular la recta de regresión (los datos 
+                                        ya dibujarían una recta).\\
+                                \item Calculemos primero la varianza de los valores ajustados ($\sigma^2_{ey}$) y luego la de los residuos ($\sigma^2_{ry}$):
+                                        $$
+                                        \sigma^2_{ey} = \sum_{i=1}^k f_{i.} \left(\bar{y} + \frac{\sigma_{xy}}{\sigma_x^2} (x_i - \bar{x}) - \bar{y} \right)^2 = 
+                                        \sum_{i=1}^k f_{i.} \left(\frac{\sigma_{xy}}{\sigma_x^2} (x_i - \bar{x}) \right)^2 =
+                                        $$
+
+                                        $$
+                                        = \frac{\sigma_{xy}^2}{\sigma_x^4} \sum_{i=1}^k f_{i.} \left( x_i - \bar{x} \right)^2 = \frac{\sigma_{xy}^2}{\sigma_x^2}
+                                        $$
+
+                                        $$
+                                        \sigma^2_{ry} = \sum_{i=1}^k \sum_{j=1}^p f_{ij} \left(y_j - \bar{y} - \frac{\sigma_{xy}}{\sigma_x^2} (x_i - \bar{x}) \right)^2 =
+                                        $$
+
+                                        $$
+                                        = \sum_{i=1}^k \sum_{j=1}^p f_{ij} (y_j - \bar{y})^2 + \frac{\sigma_{xy}^2}{\sigma_x^4} \sum_{i=1}^k \sum_{j=1}^p f_{ij}(x_j - \bar{x})^2
+                                        - 2\sum_{i=1}^k \sum_{j=1}^p f_{ij} (y_j - \bar{y})\frac{\sigma_{xy}}{\sigma_x^2}(x_j - \bar{x})
+                                        $$
+
+                                        $$
+                                        = \sigma_y^2 + \frac{\sigma_{xy}^2}{\sigma_x^4} \sigma_x^2 - 2\frac{\sigma_{xy}}{\sigma_x^2}\sigma_{xy} = 
+                                        \sigma_y^2 + \frac{\sigma_{xy}^2}{\sigma_x^2} -2\frac{\sigma_{xy}^2}{\sigma_x^2} = \sigma_y^2 - \frac{\sigma_{xy}^2}{\sigma_x^2}
+                                        $$
+
+                                        Y por tanto tenemos que la suma de ambos resulta:
+                                        $$
+                                        \sigma^2_{ey} + \sigma^2_{ry} = \frac{\sigma_{xy}^2}{\sigma_x^2} + \sigma_y^2 - \frac{\sigma_{xy}^2}{\sigma_x^2} \next \sigma_y^2 = \sigma^2_{ey} + \sigma^2_{ry}
+                                        $$\\
+                                \item Mismo proceso que el apartado $a)$, cambiando subíndices.
+                        \end{enumerate}
+
+        \end{enumerate}       
+
+        \newpage
+
+        
+        \section{Probabilidad como Conjuntos}
+
+        \begin{enumerate}
+                \subsection{Verdadero/Falso}
+                \item \textbf{Justificar la veracidad o falsedad de las siguientes afirmaciones:}
+
+                        \begin{enumerate}
+                                \item Si A y B están contenidos en C, entonces $P(\bar{C}) < P(\bar{A}) + P(\bar{B})$
+                                \item $P(B_i/A) = \frac{P(A / B_i)P(B_i)}{P(A)}$
+                                \item Si A y B son dos sucesos independientes, entonces $P(A\cup B) = P(A) + P(B)$
+                                \item Si $\{B_i\}_{i=1,2,3,...}$ son sucesos incompatibles, exhaustos y de probabilidades no nulas, entonces para un suceso
+                                        arbitrario A se tiene:
+                                        $$P(A / B_j) = \frac{P(B_j / A) P(A)}{\sum_{i=1}^n P(B_i / A)P(A)}$$
+                                \item $P(A \cap B) \geq P(A) + P(B) - 1$
+                                \item $P(A\cap B \cap C) = P(B/A\cap C) P(A/C) P(C)$
+                                \item $P(A \cap \bar{B}) = P(A)P(\bar{B})$
+                                \item Si A y B son sucesos independientes, entonces $\bar{A}$ y $\bar{B}$ también lo son.
+                                \item Si $A$ y $\bar{B}$ son independientes, entonces $\bar{A}$ y $B$ también lo son.
+                                \item Si $\bar{A}$ y $B$ son independientes, entonces $P(A\cup B) = P(\bar{A})P(B) + P(A)$
+                                \item $P(A \cap \bar{B}) = P(A) - P(A \cap B)$
+                                \item $P(A \cap \bar{B}) = P(A) - P(B)$
+                                \item $P(A) + P(B) > P(A\cap B)$ implica que $A$ y $B$ son sucesos incompatibles.
+                                \item $P((A-B)/A) = 1 - P(B)$ implica que $A$ y $\bar{B}$ son sucesos independientes.
+                                \item $P(\bigcup_{i=1}^n A_i) \geq 1 - \sum_{i=1} ^n P(A_i)$
+                                \item $P(A) = \sum_{i=1}^n P(A/B_i)P(B_i)$
+                                \item $P(A/B) = P(A\cap B) / P(A)$
+                                \item Si A, B y C son tres sucesos independientes dos a dos, entonces \\ $P(A/B) = P(B/A)$.
+                                \item Si A, B y C son tres sucesos independientes dos a dos, entonces \\ $P(A\cap B \cap C) = P(A)P(B)P(C)$.
+                                \item Si A, B y C son tres sucesos independientes dos a dos, entonces \\ $P(A/(B\cap C)) = P(A)$.
+                                \item Si A, B y C son tres sucesos independientes dos a dos, con C independiente de $A\cup B$ entonces
+                                        $P((\bar{A}\cup \bar{B})/C) = 1 - P(A)P(B)$.
+                                \item Si A y B son dos sucesos incompatibles e independientes, entonces \\ $P(A \cup B) \geq 1 - P(\bar{A}) P(\bar{B})$
+                                \item Si A y B son dos sucesos incompatibles e independientes, entonces \\ $P(A) > 0 \next P(\bar{B}/A)<1$ 
+                        \end{enumerate}
+
+
+                \newpage
+
+                \subsubsection{Soluciones}
+
+                        \begin{enumerate}
+                                \item Verdadero. Como $A\subset C$, tenemos que $P(A)\leq P(C)$, y entonces tenemos que 
+                                        $P(\bar{A}) \geq P(\bar{C})$ (se realiza el mismo proceso con $B$, obteniendo $P(\bar{B}) \geq P(\bar{C})$).
+                                        Sumando ambas desigualdades tenemos $P(\bar{A}) + P(\bar{B}) \geq 2P(\bar{C})$ y por tanto concluimos
+                                        $P(\bar{A}) + P(\bar{B}) > P(\bar{C})$.\\
+                                \item Verdadero. Basta con ver que $P(A\cap B)=P(A/B)P(B)$, y vemos que el enunciado cumple la propiedad de la probabilidad
+                                        condicionada $P(B / A)=\frac{P(A\cap B)}{P(A)}$.\\
+                                \item Falso. Dicha igualdad sólo se cumple cuando alguna de los dos conjuntos tenga probabilidad nula, para que se
+                                        cumpla la condición de independencia $ P(A\cap B) = P(A)P(B)$. Con que una de as dos probabilidades sea no nula, no 
+                                        se cumple la igualdad dada.\\
+                                \item Falso. La definición correcta del Teorema de Bayes concluiría con la siguiente igualdad:
+                                        $$P(A_j / B) = \frac{P(B / A_j) P(A_j)}{\sum_{i=1}^n P(B / A_i)P(A_i)}$$\\
+                                \item Verdadero. $P(A \cap B) \geq P(A) + P(B) - 1 \next  1 \geq P(A) + P(B) - P(A \cap B) = P(A \cup B) \next 1 \geq P(A \cup B)$\\
+                                \item Verdadero. $$P(B/A\cap C)P(A/C)P(C) = \frac{P(A\cap B\cap C)}{P(A\cap C)}\frac{P(A\cap C)}{P(C)} P(C) = $$
+                                        $$P(A\cap B\cap C)$$\\
+                                \item Falso. Esto sólo se cumple cuando los sucesos son independientes. Si no se da el caso, el enunciado es erróneo.\\
+                                \item Verdadero. $$P(\bar{A})P(\bar{B}) = (1-P(A))(1-P(B))=1-P(A)-P(B) + P(A)P(B)=$$
+                                        $$=1-P(A)-P(B) + P(A\cap B) = 1 - P(A \cup B) = \bar{P(A \cup B)} = P(\bar{A} \cap \bar{B})$$\\
+                                \item Verdadero. Demostración análoga a la anterior.\\
+                                \item Verdadero. Sabemos que $P(A \cup B) = P(A) + P(B)-P(A \cap B)$, luego la demostración se basa en probar que 
+                                        $P(B)-P(A \cap B) = P(\bar{A})P(B)$, y esto es tan fácil como ver que $P(B)-P(A \cap B) = P(\bar{A} \cap B)$
+                                        y que $\bar{A}$ y $B$ son independientes.\\
+                                \item Verdadero. Definición de probabilidad de intersección.\\
+                                \item Falso. Sólo cierto en caso de que $P(A)=1$.\\
+                                \item Falso. Para $P(A)=0.8, \thinspace P(B)=0.7, \thinspace P(A \cap B)= 0.6$ se cumple la desigualdad y no son incompatibles
+                                        (intersección no nula).\\
+                                \item Verdadero. Llegamos a la independencia entre A y B: 
+                                        $$P((A-B)/A) = P((A\cap \bar{B})/A) = \frac{P(A\cap \bar{B})}{P(A)} = 1-\frac{P(A\cap B)}{P(A)}$$
+                                        $$\next \frac{P(A\cap B)}{P(A)} = P(B) \next P(A\cap B)=P(A)P(B)$$
+                                        Y ahora como $A$ y $B$ son independientes, $A$ y $\bar{B}$ también lo son.\\
+                                \item Falso. Supongamos $P(A)=0.1, \thinspace P(B)=0.2, \thinspace P(A \cap B)= \emptyset$. Es fácil ver que no se cumple la igualdad.\\
+                                \item Falso. Si la intersección de dos conjuntos $B_i$ es no nula, la igualdad dada no se cumple (Teorema de la Probabilidad Total).\\
+                                \item Falso. El denominador debería ser $P(B)$ por definición de probabilidad condicionada.\\
+                                \item Falso. Para que se de la igualdad ha de cumplirse que $P(A) = P(B)$.\\
+                                \item Falso. Basta considerar Que la intersección de los tres conjuntos sea nula, pero que los sucesos sean no nulos.\\
+                                \item Falso. Consideremos igual que en el apartado anterior el caso en que $P(A\cap B\cap C) = 0$, y tendríamos
+                                $$P(A/(B\cap C)) = \frac{P(A\cap B\cap C)}{P(B\cap C)} = 0$$
+                                En cuyo caso sólo se cumpliría en el caso $P(A)=0$, pero sería falso en cualquier otro caso.\\
+                                \item Verdadero. $$P((\bar{A}\cup \bar{B})/C) = P((\bar{{A}\cap {B}})/C) = 1-P(({A}\cap {B})/C) = 1- \frac{P(A\cap B\cap C)}{P(C)} = $$
+                                        $$=1- \frac{P(A)P(B)P(C)}{P(C)} = 1- P(A)P(B)$$\\
+                                \item Verdadero. Si son incompatibles, la intersección es nula, y por tanto de la independencia se tiene que $A$ o $B$ al menos uno de
+                                        los dos es un suceso nulo. Si sólo uno es nulo (supongamos $A$), tendríamos $P(A\cup B) = P(B)$ y $P(\bar{A})=1$, y por tanto se 
+                                        daría la igualdad en la desigualdad dada. En caso de que ambos fueran nulos, entonces la unión es nula, y por tanto se daría de nuevo
+                                        la igualdad (ya que $P(\bar{A})=P(\bar{B})=1$ y por ello $1-P(\bar{A})P(\bar{B})=0$).\\
+                                \item Falso. Si $A$ es no nulo, por lo mencionado en el apartado anterior, tenemos que $P(B)=0$ y así $P(\bar{B}) = 1$ lo que lo convierte
+                                        en suceso seguro. Por ello al calcular
+                                        $P(\bar{B}/A)=\frac{P(\bar{B}\cap A)}{P(A)} = \frac{P(A)}{P(A)} = 1$. Luego no se cumple la desigualdad dada.
+                        \end{enumerate} 
+
+
+                \newpage
+
+                \subsection{Cuestiones Teóricas}
+
+                        \begin{enumerate}
+                                \item Si A y B son sucesos independientes, $\bar{A}$ y $\bar{B}$ también lo son.\\
+                                \item Definir la función de probabilidad condicionada a un suceso no nulo y demostrar 
+                                        que satisface los axiomas de Kolmogorov.\\
+                                \item Especificar las condiciones para que tres sucesos sean independientes.\\
+                                \item Demostrar que $1 - P(\bar{A}) - P(\bar{B}) \leq P(A \cap B) \leq P(A) + P(B)$\\
+                                \item Sean $\{A_n\}_{n\in \N} \in \mathcal{A}$ sucesos no nulos, incompatibles dos a dos, cuya unión es $\Omega$ y sea 
+                                        $B \in \mathcal{A}$ un suceso arbitrario. Suponiendo que las probabilidades $P(A_n), \thinspace n \in \N$, son conocidas,
+                                        y que también lo son las probabilidades condicionadas $P(B/A_n), \thinspace n \in \N$, deducir la expresión para calcular 
+                                        $P(B)$ a partir de ellas.
+                        \end{enumerate}
+
+                
+                \newpage
+
+                \subsubsection{Soluciones}
+                        
+                        \begin{enumerate}
+                                \item Solución dada en el apartado $h)$ de la sección anterior.
+                                \item Dado un espacio de probabilidad $(\Omega, \mathcal{A}, P)$, y un suceso no nulo $A\in \mathcal{A}$, la aplicación
+                                        $$
+                                        \begin{aligned}
+                                                P(\cdot/A) : \thinspace &\mathcal{A} \rightarrow \R \\
+                                                                        &B \mapsto P(B/A)
+                                        \end{aligned}
+                                        $$
+                                        es una función de probabilidad sobre $(\Omega. \mathcal{A}) $ cumpliendo:
+                                        \begin{enumerate}
+                                                \item $P(B/A) \geq 0, \thinspace \forall B \in \mathcal{A}$ \\
+                                                        Dado que $A$ es un suceso no nulo, y que $P(A\cap B) \leq P(A)$, tenemos que la probabilidad condicionada
+                                                        está bien definida.
+                                                \item $P(\Omega/A)=1$.\\
+                                                        $P(\Omega/A) = \frac{P(\Omega \cap A)}{P(A)} = \frac{P(A)}{P(A)} = 1$
+                                                \item Tercer axioma de Kolmogorov, se deja demostración al lector como ejercicio.
+                                        \end{enumerate}
+                                \item Para que tres sucesos cualesquiera sean independientes, ha de cumplirse
+                                        $$P(A\cap B \cap C)=P(A)P(B)P(C)$$
+                                \item La fórmula para el cálculo de $P(B)$ viene dado por 
+                                        $$P(B) = \sum_{n=1}^{+\infty} P(B/A_n)P(A_n)$$
+                        \end{enumerate}
+        
+        \end{enumerate}
+        
+        \newpage
+
+        \section{Variables Aleatorias y Distribuciones Discretas}
+
+        \begin{enumerate}
+
+                \subsection{Opción Múltiple}
+                \item \textbf{Responde correctamente a las siguientes cuestiones:}
+                
+                        \begin{enumerate}
+                                \item \textbf{Sea $X$ una variable aleatoria discreta y considérese la nueva v.a. $Y = g(X)$, 
+                                        donde $g$ es una función continua estrictamente decreciente. Si $h = g^{-1}$, entonces 
+                                        la función de distribución de $Y$ es:} 
+                                        \begin{enumerate}
+                                                \item $F_Y (y) = 1 - F_X (h(y))$
+                                                \item $F_Y (y) = F_X (h(y))$
+                                                \item $F_Y (y) = 1 - F_X (h(y)) + P(Y=y)$
+                                                \item $F_Y (y) = [1 - F_X (h(y))][h'(y)]$
+                                        \end{enumerate}
+                                
+                                \item \textbf{Sea $X$ una v.a. discreta con media $m$ y desviación típica 0. Entonces se puede afirmar que:}
+                                        \begin{enumerate}
+                                                \item $P(X \neq 0) = 0$
+                                                \item $P(X = 0) = 1$
+                                                \item $P(X \neq 0) = 1$
+                                                \item $X=m$
+                                        \end{enumerate}
+
+                                \item \textbf{Sea $X$ una variable aleatoria continua y considérese la nueva v.a. $Y = aX + b$. Entonces:}
+                                        \begin{enumerate}
+                                                \item $F_Y (y) = 1 - F_X \left(\frac{y-b}{a}\right)$
+                                                \item $F_Y (y) = \left[1 - F_X \left(\frac{y-b}{a}\right)\right] |a|^{-1}$
+                                                \item $f_Y (y) = \frac{1}{|a|} f_X \left(\frac{y-b}{a}\right) $
+                                                \item $f_Y (y) = |a| f_X (ax+b)$
+                                        \end{enumerate}
+                                
+                                \item \textbf{Sea $X$ una v.a. con función de distribución $F_X(x) = 2x, \s 0<x<1/8, \ss F_X(x) = 1/2, \s 
+                                        1/8 \leq x < 1/2 $ y $F_X (x) = \frac{x+1}{2}, \s 1/2 \leq x < 1$. Entonces se tiene: }
+                                        \begin{enumerate}
+                                                \item El único valor de la mediana es 1/2.
+                                                \item $P\left(X < \frac{1}{8}\right) + P\left(X > \frac{1}{8}\right) = \frac{3}{4}$.
+                                                \item $P\left(\frac{1}{8} \leq X < \frac{1}{2}\right) > P\left(X = \frac{1}{8}\right)$.
+                                                \item $P\left(X \geq \frac{1}{8}\right) > P\left(X < \frac{1}{2}\right)$.
+                                        \end{enumerate}
+
+                                \item \textbf{Sea $X$ una variable aleatoria simétrica tal que el primer cuartil es 1.5, el rango intercuartílico
+                                        es 1 y el coeficiente de variación 1/4. Entonces:}
+                                        \begin{enumerate}
+                                                \item Todos los puntos del intervalo $[1.75, \s 2.25]$ son mediana.
+                                                \item $P(-2 < X < 4) = P(0 < X < 6)$.
+                                                \item El rango intercuartílico de $X$ duplica al de la variable tipificada.
+                                                \item $P \left(-1 < \frac{2X - 4}{3} < 1 \right) \geq 0.9$.
+                                        \end{enumerate}       
+                                
+                                \item \textbf{Sea $(\Omega, \mathcal{A}, P)$ un espacio de probabilidad arbitrario y $X: \Omega \rightarrow \R$. Entonces:}
+                                        \begin{enumerate}
+                                                \item Si $X$ es una v.a., su distribución de probabilidad satisface 
+                                                        $P_X((a,b]) = 1 - P_X((b, +\infty)) - P_X((-\infty, a))$.
+                                                \item $X$ es v.a. $\Leftrightarrow P(X^{-1}(B)) \in \mathcal{A}, \ss \forall B \in \mathcal{B}$.
+                                                \item Si $X$ es variable aleatoria y $F_X$ es su función de distribución, entonces 
+                                                        $P(a\leq X < b) = F_X(b^{-})-F_X(a^{-})$.
+                                                \item Si $\Omega = [-1,1]$ y $\mathcal{A} = \{\emptyset, \Omega, [-1, 0), [0, 1]\}$, la función 
+                                                $X(\omega) = \omega, \ss \forall \omega \in \Omega$, es variable aleatoria sobre $(\Omega, \mathcal{A}, P)$.
+                                        \end{enumerate}
+                        \end{enumerate}
+
+                
+                \newpage
+
+                \subsubsection{Soluciones}
+                        
+                        \begin{enumerate}
+                                \item Opción 1). \textit{Si g fuera monótona creciente...}\\
+                                        Al ser $g$ una función continua y estrictamente monótona, tenemos que dicha función es biyectiva en el dominio
+                                        en el que esté definida. Por definición sabemos que 
+                                        $$F_Y(y) = P(Y \leq y) = P(X\leq g^{-1}(y)) = F_X (g^{-1}(y))$$
+                                        Por ello, llamando ahora $g^{-1}=h$ tenemos $F_Y(y) = F_X (h(y))$.\\ 
+                                        *\textit{Como g es monótona decreciente...}\\
+                                        Basta considerar ahora que, por ser decreciente, si el intervalo maximal de definición viene dado por $[a, b]$, su imagen 
+                                        por $g$ viene dada por $[g(b), g(a)]$, con $a\leq b$. Por ello, tenemos
+                                        $$F_Y(y) = P(Y \leq y) = P(X\geq g^{-1}(y)) = 1 - P(X\leq g^{-1}(y)) =$$
+                                        $$= 1 - F_X (g^{-1}(y))$$
+                                        Por ello, llamando ahora $g^{-1}=h$ tenemos $F_Y(y) = 1 - F_X (h(y))$.\\
+                                \item Opción 4). Si la desviación típica vale 0 significa que el intervalo que contiene a todos los elementos es de longitud nula, 
+                                        por ello sabemos que todos los elementos del conjunto han de ser el mismo. Al tener media $m$, y saber que todos
+                                        los elementos de la v.a. son el mismo (es decir, son un único valor), concluimos que $X=m$. Los dos primeros 
+                                        apartados es fácil desmentirlos considerando cualquier $m \neq 0$, y para el tercero $m=0$ conduce también a
+                                        un enunciado erróneo. \\
+                                \item Opción 3). Vamos a suponer $a,b \neq 0$, ya que en dicho caso el resultado sería trivial, y no hay ninguna opción para ello. Podemos
+                                        ver que al tratarse de una transformación lineal sabemos que es derivable, y como la derivada viene dada por el valor de $a$,
+                                        sabemos que la transformación $g(X) = aX + b$ es estrictamente monótona. Por el apartado $a)$ sabemos que $F_Y(y) = F_X (g^{-1}(y))$,
+                                        y por tanto calculando la inversa de la transformación y sustituyendo obtenemos $g^{-1}(y) = \frac{y-b}{a}$ y así
+                                        $F_Y(y) = F_X (\frac{y-b}{a})$. Vemos que esta igualdad no la dispone ninguna de las opciones del enunciado, luego 
+                                        procedamos como sigue. Para ver su función de distribución basta con aplicar el teorema del cambio de variable para
+                                        transformaciones de continua a continua, dado por 
+                                        $$ f_Y(y) = f_X(g^{-1}(y)) \left| \frac{d g^{-1}(y)}{dy} \right| \next 
+                                        \left| \frac{d g^{-1}(y)}{dy} \right| = \left| \frac{d \frac{y-b}{a}}{dy} \right| = \frac{1}{|a|}$$
+                                        $$ \next f_Y(y) = \frac{1}{|a|}f_X \left(\frac{y-b}{a}\right)$$
+                                \item Opción 2).
+                                \item Opción 2).
+                                \item Opción 3).
+                                
+                        \end{enumerate}
+
+
+                \newpage
+
+                \subsection{Verdadero/Falso}
+                \item \textbf{Justificar la veracidad o falsedad de las siguientes afirmaciones:}
+
+                        \begin{enumerate}
+                                \item La varianza de la distribución binomial es siempre inferior a su esperanza.
+                                \item La distribución de Poisson es un caso particular de la binomial cuando n es grande y $p$ pequeño.
+                                \item En sucesivos experimentos independientes éxito/fracaso, con probabilidad de éxito $p$ constante,
+                                        el número de realizaciones hasta encontrar el r-ésimo éxito sigue una distribución normal negativa.
+                                \item La distribución hipergeométrica toma valores entre cero y n con probabilidades no nulas.
+                                \item El momento centrado de orden 2 de una variable aleatoria nunca puede ser inferior al momento no centrado
+                                        de orden 2 de dicha variable.
+                                \item Si $X$ es una v.a. no negativa cuya esperanza existe, entonces se tiene
+                                        $P(X\geq \varepsilon) \leq \frac{E[X]}{\varepsilon}, \thinspace \forall \varepsilon >0$.
+                                \item Si $E[X] = 2$ y $Var[X] = 3$, entonces $P(-3 < X < 7) \geq 3/5$.
+                                \item Una variable aleatoria que es transformada de otra no tiene por qué ser siempre del mismo tipo que ésta.
+                                \item La distribución geométrica modela el número de fracasos que han ocurrido antes de que ocurra el primer éxito.
+                                \item El momento no centrado de orden 2 de una v.a. nunca puede ser inferior al cuadrado del momento centrado de 
+                                        orden 1 de dicha variable.
+                                \item Sea $X$ una variable aleatoria continua definida en todo $\R$. Entonces se tiene 
+                                        $F_X (x) = 1 - F_{-X} (x), \thinspace \forall x \in \R^+$.
+                                \item Si $p=0.4$ en una distribución binomial, el cálculo de $\frac{7!}{3! 4!} (0.4)^3 (0.6)^4$ nos da la posibilidad 
+                                        de conseguir exactamente tres éxitos en 7 ensayos.
+                                \item La varianza de la distribución de Poisson aumenta cuando aumenta su media.
+                                \item La distribución binomial con $n=1$, es la distribución de Bernoulli.
+                                \item La distribución geométrica es un caso particular de la hipergeométrica si $r$ (número de éxitos) es igual a 1.
+                                \item Si la función generatriz de momentos de $X$ es $M_X(t) = (pe^t + 1 -p)^6, \ss t \in \R$ con $E[X] = 1.8$, 
+                                        entonces $p=2$.
+                                \item Si $E[X] = 2/3$ y la función generatriz de momentos de $X$ es $M_X(t) = \frac{p}{1-0.4e^t}, \ss t< -\ln 0.4$,
+                                        entonces $p=0.6$.
+                                \item Si $X$ es v.a. con función de distribución $F_X(x) = x, \ss 0 \leq x \leq 1$, su función generatriz de momentos
+                                        vale $M_X(t) = e^t /t, \ss t \in \R$.
+                        \end{enumerate}
+                
+
+                \newpage 
+
+                \subsubsection{Soluciones}
+
+                        \begin{enumerate}
+                                \item Verdadero. $E[X] > Var[X]$, siendo $X$ una distribución binomial, donde $n \in \N$ y $ p \in (0,1)$. 
+                                        Tenemos entonces
+                                        $$np > np(1-p) \next 1>1-p \next p>0$$\\
+                                \item Verdadera. La distribución de Poisson se aproxima a la binomial cuando $n>20$ y $p\leq 0,1$. Se la conoce 
+                                        por ello como la ley de los sucesos raros. El enunciado es un poco impreciso pero lo damos como válido.\\
+                                \item Falso. Una $X$ con distribución binomial negativa describe el número de fracasos antes de que ocurra el 
+                                        r-ésimo éxito.\\
+                                \item Verdadero. Por definición, sabemos que si tenemos una muestra aleatoria de tamaño $n$, entonces 
+                                        $x=0, ... , n$.\\
+                                \item Falso. El enunciado afirma que $m_2 \leq \mu_2$, siendo éstos los momentos de una v.a. $X$. Por definición sabemos
+                                        que 
+                                        $$\left.
+                                        \begin{aligned}
+                                                &m_2 = E[X^2] \\
+                                                &\mu_2 = E[(X- E[X])^2] = E[X^2]- E[X]^2
+                                        \end{aligned}
+                                        \right\}
+                                        $$
+                                        Si suponemos $m_2 \leq \mu_2$ tenemos
+                                        $$E[X^2] \leq E[X^2] - E[X]^2  \next  E[X]^2 \leq 0$$
+                                        Lo cual es una contradicción.\\
+                                \item Verdadero. Nos encontramos ante el enunciado del teorema de Markov de la Desigualdad Básica, cuya demostración
+                                        se puede ver detenidamente en el siguiente enlace: \url{http://www.ugr.es/~cdpye/CursoProbabilidad/pdf/P_T04_DesigualdadBasica.pdf}\\
+                                \item Verdadero. Aplicando la desigualdad de Chebychev en una de sus variantes dada por 
+                                        $$P\left( - k\sqrt{Var[X]} < X - E[X] < k\sqrt{Var[X]}\right) \geq 1- \frac{1}{k^2}, \quad \forall k>0$$
+                                        $$P\left( - k\sqrt{3} < X - 2 < k\sqrt{3}\right) = P\left( 2 - k\sqrt{3} < X < 2 + k\sqrt{3}\right)$$
+                                        Tomando $k = \frac{5}{\sqrt{3}}$ obtenemos 
+                                        $$P\left( - 3 < X < 7\right) \geq \frac{22}{25} \geq \frac{3}{5}$$\\
+                                \item Falso. Por resultados vistos anteriormente hemos visto que, siendo $g$ una transformación medible, dicha transformación 
+                                        conserva todas las propiedades de la variable primaria.\\
+                                \item Verdadero. Definición de la distribución geométrica.\\
+                                \item Verdadero. El enunciado afirma que $m_2 \geq \mu_1^2$. Aplicando lo visto en el apartado $e)$ tenemos $ E[X^2] \geq E[X- E[X]] = 0$.
+                                        Como $E[X^2] = \sum_i \frac{x_i^2}{n}$, al ser suma de cuadrados vemos claramente que es suma de elementos no negativos,
+                                        y por tanto afirmamos que $E[X^2] \geq 0$.\\
+                                \item Falso. Sabemos por definición que $F_X (x) = P(X\leq x) $, donde tenemos por hipótesis que $x \in \R^+$. Consideremos la transformación lineal 
+                                        (y por tanto diferenciable) dado por $Y = g(X) = -X$, de donde sabemos que 
+                                        $$F_Y(y) = F_X(g^{-1}(y)) = F_X(-y)$$ 
+                                        Como $Y=-X$ deshaciendo los cambios obtenemos 
+                                        $$F_{-X}(-x) = F_X(x)$$
+                                        Para el último paso de la prueba necesitaríamos la condición $F_{-X}(-x) = 1 - F_{-X}(x)$, lo cual sólo se daría en caso de que la distribución
+                                        fuera simétrica centrada en 0, lo cual no se supone en la hipótesis. Luego suponiendo cualquier otro tipo de distribución continua se llega al 
+                                        contraejemplo.\\
+                                \item Verdadero. Extrayendo de la hipótesis los datos de la fórmula del cálculo de probabilidades de la distribución binomial,
+                                        $P(X=x) = \left(\begin{matrix} n \\ x \end{matrix}\right) p^x (1-p)^{n-x}$, obtenemos los datos $n=7, \thinspace x=3$, 
+                                        luego podemos afirmar que $X$ describe el numero de éxitos en $n$ repeticiones independientes.\\
+                                \item Verdadero. Ya que, en una distribución de Poisson la media es igual a su varianza, es fácil ver que el enunciado es cierto.\\
+                                \item Verdadero. Si tomamos $n=1$ vemos forzado a que $x$ sólo pueda tomar valores 0 y 1, y en su función de probabilidad vemos que, como 
+                                        la binomial viene dada por $P(X=x) = \left(\begin{matrix} n \\ x \end{matrix}\right) p^x (1-p)^{n-x}$, al suponer
+                                        $n=1$ entonces tenemos $P(X=x) = p^x (1-p)^{1-x}$ que es precisamente una Bernoulli con probabilidad $p$.\\
+                                \item Falso. La distribución geométrica es un caso particular cuando $r=1$, pero no de la hipergeométrica. Se trata de un caso particular
+                                        de la binomial negativa.
+                                \item Falsa.
+                                \item .
+                                \item .
+                                
+                        \end{enumerate}
+
+                
+                \newpage
+                
+                \subsection{Cuestiones Teóricas}
+
+                        \begin{enumerate}
+                                \item Probar que la distribución de probabilidad es una función de probabilidad.
+                                \item Si $X$ es una variable aleatoria con media 1 y varianza 2, dar una cota inferior para la probabilidad
+                                        de que la variable tome valores en $[-4, 11]$.
+                                \item Explicar el modelo que da lugar a la distribución binomial negativa y especificar su función masa de probabilidad.
+                                \item Deducir la función generatriz de momentos de la distribución geométrica.
+                                \item Definir formalmente el concepto de variable aleatoria especificando la distribución de todos los elementos
+                                        que aparecen.
+                                \item Definir la distribución de probabilidad de una variable aleatoria y probar que satisface los axiomas de Kolmogorov.
+                                \item Definir la función de distribución de una variable aleatoria y enumerar las propiedades que caracterizan de manera
+                                        genérica a esta función.
+                                \item Formular y demostrar la desigualdad de Chebishev.
+                                \item Distribución binomial. Definición. Cálculo de la media y la varianza.
+                                \item Distribución de Poisson. Definición. Función de distribución y función generatriz de momentos. Cálculo de la media.
+                                
+                                        
+                                
+                        \end{enumerate}
+
+
+                \newpage
+
+                \subsubsection{Soluciones}
+                                Estas cuestiones se dejarán resueltas de cara a la convocatoria ordinaria, ya que todas estas son definiciones y demostraciones
+                        que se encuentran a disposición del alumnado en múltiples plataformas, y que de cara al parcial del próximo viernes no resultan 
+                        relevantes. Mucho ánimo y nos vemos este viernes en PRADO.
+
+                        \begin{enumerate}
+                                \item Para probar que $P_X$ es una función de probabilidad bastará, como en temas anteriores, con que cumpla los tres axiomas
+                                        de Kolmogorov:
+                                        \begin{enumerate}
+                                                \item[A1:]  $P_X(B) \geq 0, \thinspace \forall B \in \mathcal{B}$. 
+                                                \item[A2:]  $ P_X(\R) = 1$.
+                                                \item[A3:]  $ \{B_i\}_{i \in \N} \subseteq \mathcal{B}$ y $B_i \cap B_j = \emptyset, \thinspace \forall i \neq j 
+                                                                \Rightarrow P_X \left( \bigcup_{i=1}^{+\infty} B_i\right) = \sum_{i=1}^{+\infty} P_X(B_i)$.
+                                        \end{enumerate}
+                        \end{enumerate}
+
+        \end{enumerate}
+
+
+\end{document}
