@@ -13,6 +13,7 @@
 \usepackage{pgfplots}
 \usepackage{listings}
 \usepackage{tikz}
+\usepackage{verbatim} %comentarios de párrafos
 \usepackage{dsfont} %Numeros reales, naturales...
 \usepackage{cancel}
 \usepackage{hyperref}
@@ -22,6 +23,7 @@
 
 %\graphicspath{{images/}}
 \newcommand*{\QED}{\hfill\ensuremath{\square}}
+
 
 
 %Estructura de ecuaciones
@@ -187,8 +189,15 @@
                                         mediano no puede ser 1 ya que el 50\% de los datos están en $x_1$ ($f_1 = 0.5$). Si completamos la tabla, vemos que 
                                         $F_2 = 0.7$, y como $n = \frac{N_i}{F_i}$, tenemos que $n = 10$.\\   
 
-                                \item Solución apartado 3).
-                                \item Solución apartado 4).
+                                \item Solución apartado 3). Sabemos por hipótesis que $\sigma_y^2 = 4$ y que $\sigma_{ry}^2 = ECM(Y/X) = 1$. Como sabemos que la varianza
+                                        sólo se ve afectada por traslaciones, al tener $\sigma_y^2 = \sigma_{ey}^2 + \sigma_{ry}^2$ dicha traslación afecta de igual manera
+                                        a las otras dos varianzas del lado derecho de la igualdad. Así tenemos $ECM(Y'/X) = \sigma_{ry'}^2 = (-1)^2\sigma_{ry}^2 = 1$. \\
+                                
+                                \item Solución apartado 4). Tomando un polinomio de grado arbitrario, de la forma $y = a_0 + a_1 x + ... + a_n x^n$, vemos que el único término
+                                        no nulo es $a_2 = a$. Igualando las derivadas parciales a cero de la función $ \phi (a_2) = \sum_{i=1}^k \sum_{j=1}^p f_{ij} [y_j - ax^2]^2$
+                                        obtenemos 
+                                        $$m_{n,1} = \sum_{i=0}^n a_i m_{n+i,0}$$
+                                        Como $n=2$ y $a_0 = a_1 = 0$, tenemos $m_{2,1} = a_2 m_{4,0}$. Despejando obtenemos $a = \frac{m_{2,1}}{m_{4,0}}$.\\
                         \end{enumerate}
 
 
@@ -297,10 +306,24 @@
                                                 $$\eta_{x/y} ^2 = 1 - \frac{ECM(X/Y)}{\sigma_x^2}$$
                                                 Sustituyendo los dos valores que nos da el enunciado tenemos que $\eta_{x/y} ^2 = 0.25$, en contradicción con que 
                                                 valga estrictamente menos que 0.25.
-                                \item Verdadero.
-                                \item Falso.
-                                \item Verdadero.
-                                \item Verdadero.
+                                \item Verdadero. La media tiene varianza 0 con respecto a sí misma.
+                                \item Falso. El coeficiente de correlación lineal viene dado por $R_{xy} = \frac{\sigma_{xy}}{\sigma_x \sigma_y}$. Sabemos que las 
+                                                desviaciones típicas se ven afectadas por el valor absoluto del cambio de escala, mientras que la covarianza 
+                                                se ve afectada por el producto de ambos cambios de escala. Siendo esto así, tenemos
+                                                $$R_{ax+c, by+d} = R_{ax, by} = \frac{\sigma_{ax, by}}{\sigma_{ax} \sigma_{by}} = \frac{ab\sigma_{xy}}{|a||b|\sigma_{x} \sigma_{y}}$$
+                                                Como sabemos que $a=-3$ y $b=3$ entonces concluimos
+                                                $$R_{x'y'} = \frac{-9\sigma_{xy}}{9 \sigma_{x} \sigma_{y}} = -R_{xy}$$
+                                \item Verdadero. Al ser independientes, tenemos $m_{11} = m_{01} m_{10} = \bar{x} \bar{y}$. Despejando ahora $m_{01} = \bar{y}$ tenemos
+                                                $\bar{y} = \frac{m_{11}}{m_{10}} = \frac{6}{-3} = -2$. Al aplicar una transformación lineal a la variable $Y$, la media 
+                                                se ve afectada tanto por la traslación como por los cambios de escala de la misma manera. Por ello, $\bar{y}' = -3 \bar{y} + 1 = 7$.
+                                \item Verdadero. Supongamos la primera recta la de regresión $Y/X$ (y la segunda $ x = -\frac{1}{5}y +\frac{2}{5}$ la de $X/Y$). Tenemos entonces 
+                                                $$ -4 = \frac{\sigma_{xy}}{\sigma_x^2} \quad \quad 1 = \bar{y} - \frac{\sigma_{xy}}{\sigma_x^2} \bar{x} = \bar{y} + 4 \bar{x}$$
+                                                $$ -\frac{1}{5} = \frac{\sigma_{xy}}{\sigma_y^2} \quad \quad \frac{2}{5} = \bar{x} - \frac{\sigma_{xy}}{\sigma_y^2} \bar{y} = \bar{x} + \frac{1}{5} \bar{y} $$
+                                                Tenemos entonces el siguiente sistema:
+                                                $$1 = \bar{y} + 4 \bar{x} \quad \quad 2 = 5\bar{x} + \bar{y}$$
+                                                Que se reuselve fácilmente y podemos ver que verdaderamente $\bar{x} = 1$. En caso de que dicho valor lo tomara la variable $Y$, 
+                                                como el enunciado no proporciona ninguna especificación acerca de las rectas, bastaría con cambiar las variables de nuestro sistema
+                                                y obtendríamos el resultado buscado.
                         \end{enumerate}
         
 
@@ -614,6 +637,7 @@
                                                 \item $P\left(X \geq \frac{1}{8}\right) > P\left(X < \frac{1}{2}\right)$.
                                         \end{enumerate}
 
+                        \newpage
                                 \item \textbf{Sea $X$ una variable aleatoria simétrica tal que el primer cuartil es 1.5, el rango intercuartílico
                                         es 1 y el coeficiente de variación 1/4. Entonces:}
                                         \begin{enumerate}
@@ -667,9 +691,15 @@
                                         $$ f_Y(y) = f_X(g^{-1}(y)) \left| \frac{d g^{-1}(y)}{dy} \right| \next 
                                         \left| \frac{d g^{-1}(y)}{dy} \right| = \left| \frac{d \frac{y-b}{a}}{dy} \right| = \frac{1}{|a|}$$
                                         $$ \next f_Y(y) = \frac{1}{|a|}f_X \left(\frac{y-b}{a}\right)$$
-                                \item Opción 2).
-                                \item Opción 2).
-                                \item Opción 3).
+                                \item Opción 2). Tengamos en cuenta que la función de distribución tiene una discontinuidad de salto en $x=1/8$, luego dicho valor, a pesar 
+                                        de ser distribución continua, toma valor no nulo. En concreto toma probabilidad con valor $P(X=1/8)= F(x^+)-F(x^-) = 1/2 - 1/4 = 1/4$.
+                                        Esta distribución presenta otra discontinuidad de salto con la misma probabilidad en $x=1/2$. Vemos por ello que 
+                                        $$P\left(X < \frac{1}{8}\right) + P\left(X > \frac{1}{8}\right) = 1 - P\left(X = \frac{1}{8}\right) = 1 - \frac{1}{4} = \frac{3}{4}$$
+                                \item Opción 2). Como el primer cuartil vale 1.5 y el rango intercuartílico es 1, nos indica que el segundo cuartil (la mediana) se encuentra en 
+                                        $x=2$, luego nos encontramos ante una distribución simétrica centrada en 2, y por ser simétrica, dicho valor coincide con su media.
+                                        Como $CV_X = \frac{\sigma_x}{\bar{x}} = \frac{1}{4}$, tenemos que la desviación típica toma valor 1/2, y vemos por ello que 
+                                        $P(-2 < X < 4) = P(0 < X < 6)$ ya que todos los datos se encuentran comprendidos en el intervalo $(0,4)$.
+                                \item Opción 3). Definición de probabilidad de un intervalo.
                                 
                         \end{enumerate}
 
@@ -766,10 +796,14 @@
                                         $n=1$ entonces tenemos $P(X=x) = p^x (1-p)^{1-x}$ que es precisamente una Bernoulli con probabilidad $p$.\\
                                 \item Falso. La distribución geométrica es un caso particular cuando $r=1$, pero no de la hipergeométrica. Se trata de un caso particular
                                         de la binomial negativa.
-                                \item Falsa.
-                                \item .
-                                \item .
-                                
+                                \item Falsa. Sabemos que $E[X] = \left.\frac{dM_X (t)}{dt} \right|_{t=0}$, por ello derivando y evaluando en 0 tenemos 
+                                        $E[X] = 6p$. Como por hipótesis sabemos que $E[X] = 1.8$, concluimos que $p \neq 2$.
+                                \item Verdadera. Procedimiento similar al anterior.
+                                \item Falsa. Si calculamos la media de la distribución vemos que tenemos $E[X]=1/2$, Además, la función generatriz de momentos ha de cumplir
+                                        $$E[X] = \left.\frac{dM_X (t)}{dt} \right|_{t=0}$$
+                                        Luego, derivando la función generatriz con respecto a $t$ obtenemos 
+                                        $$E[X] = \left. e^t \left(\frac{1}{t} - \frac{1}{t^2}\right) \right|_{t=0} = -\infty$$
+                                        Y por lo tanto vemos que no coinciden.
                         \end{enumerate}
 
                 
@@ -777,6 +811,8 @@
                 
                 \subsection{Cuestiones Teóricas}
 
+                        Estas cuestiones y demostraciones son resultados vistos en clase. Aún así os las dejo propuestas, así como lo han hecho los profesores con estas 
+                        preguntas en los últimos años, para que podáis ir lo mejor preparadxs posible al examen final.
                         \begin{enumerate}
                                 \item Probar que la distribución de probabilidad es una función de probabilidad.
                                 \item Si $X$ es una variable aleatoria con media 1 y varianza 2, dar una cota inferior para la probabilidad
@@ -796,6 +832,7 @@
                                 
                         \end{enumerate}
 
+\begin{comment}
 
                 \newpage
 
@@ -814,8 +851,10 @@
                                                                 \Rightarrow P_X \left( \bigcup_{i=1}^{+\infty} B_i\right) = \sum_{i=1}^{+\infty} P_X(B_i)$.
                                         \end{enumerate}
                         \end{enumerate}
+\end{comment}
 
         \end{enumerate}
+
 
 
 \end{document}
